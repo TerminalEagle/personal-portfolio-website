@@ -1,0 +1,54 @@
+.header > div,
+.footer > div {
+  @apply flex items-center justify-between;
+}
+
+.header > div {
+  @apply h-[126px] relative;
+}
+
+.footer {
+  @apply bg-indigo;
+}
+
+.footer > div {
+  @apply h-[80px] gap-12;
+}
+
+.cta {
+  @apply flex justify-between py-32 items-center gap-8;
+}
+
+.cta h2 {
+  @apply max-w-[380px];
+}
+
+.divider {
+  @apply border-t border-[#ccc] flex-1;
+}
+
+@media screen and (max-width: 670px) {
+  .header {
+    @apply sticky top-0 bg-white z-[1];
+  }
+
+  .header > div {
+    @apply h-[80px];
+  }
+
+  .footer > div {
+    @apply h-auto flex-col items-center gap-8 py-12;
+  }
+
+  .divider {
+    @apply hidden;
+  }
+
+  .cta {
+    @apply flex-col items-center py-16;
+  }
+
+  .cta h2 {
+    @apply text-center px-6 mb-6;
+  }
+}

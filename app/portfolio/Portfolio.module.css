@@ -1,0 +1,55 @@
+.project {
+  @apply grid grid-cols-2 gap-16 mb-24;
+}
+
+.project:nth-child(2n) .thumbnail {
+  @apply order-1;
+}
+
+.info {
+  @apply py-16 border-y border-[#ccc];
+}
+
+.thumbnail {
+  @apply overflow-hidden;
+}
+
+.thumbnail img {
+  @apply h-full object-contain;
+}
+
+.name {
+  @apply mb-4;
+}
+
+.description {
+  @apply mb-8;
+}
+
+@media screen and (max-width: 1000px) {
+  .thumbnail img {
+    @apply relative min-w-[200%] h-[600px] left-[-75%];
+  }
+
+  .project:nth-child(2n) .thumbnail img {
+    @apply left-[-50%];
+  }
+}
+
+@media screen and (max-width: 670px) {
+  .project {
+    @apply grid grid-cols-1 gap-8 mb-32;
+  }
+
+  .info {
+    @apply py-12;
+  }
+
+  .thumbnail img {
+    @apply static min-w-full h-full;
+  }
+
+  .project:nth-child(2n) .thumbnail {
+    @apply -order-none;
+  }
+}

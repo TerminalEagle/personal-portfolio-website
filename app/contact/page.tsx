@@ -1,11 +1,13 @@
 import { Socials } from "@/components/Reusable/Socials";
+import styles from "./Contact.module.css";
+import Button from "@/components/Reusable/Button";
 
 export default function Contact() {
   return (
     <>
-      <section>
-        <div>
-          <h1>Get in touch</h1>
+      <section className={styles.contact}>
+        <div className={styles["get-in-touch"]}>
+          <h1>Get in Touch</h1>
           <div>
             <p>
               I’d love to hear about what you’re working on and how I could help. I’m currently looking for a new role and am open to a wide range of opportunities. My preference
@@ -16,9 +18,9 @@ export default function Contact() {
             <Socials />
           </div>
         </div>
-        <div>
-          <h2>Contact me</h2>
-          <form>
+        <div className={styles.container}>
+          <h2>Contact Me</h2>
+          <form className={styles.form}>
             <div>
               <label htmlFor="name">Name</label>
               <input type="text" id="name" />
@@ -31,7 +33,7 @@ export default function Contact() {
               <label htmlFor="message">Message</label>
               <textarea id="message" cols={30} rows={10} />
             </div>
-            <button>Send message</button>
+            <Button type="primary">Send message</Button>
           </form>
         </div>
       </section>

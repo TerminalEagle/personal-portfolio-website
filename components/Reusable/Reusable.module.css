@@ -1,0 +1,83 @@
+.wrapper {
+  @apply max-w-[1110px] mx-auto px-[32px];
+}
+
+@media screen and (max-width: 670px) {
+  .wrapper {
+    @apply px-[16px];
+  }
+}
+
+.navigation ul {
+  @apply flex items-center gap-7 uppercase text-xs tracking-widest;
+}
+
+.navigation a:is(:link, :visited) {
+  @apply text-indigo font-medium;
+}
+
+.navigation-footer {
+  @apply mr-auto;
+}
+
+@media screen and (max-width: 670px) {
+  .navigation-header {
+    @apply absolute top-full left-4 right-4 bg-white z-10 pb-6;
+  }
+
+  .navigation ul {
+    @apply flex-col;
+  }
+
+  .navigation-footer {
+    @apply mr-0;
+  }
+
+  .navigation-footer ul {
+    @apply flex-col;
+  }
+}
+
+.navigation-footer a:is(:link, :visited) {
+  @apply text-white;
+}
+
+.navigation a:is(:hover, :active),
+.navigation-footer a:is(:hover, :active) {
+  @apply text-green;
+}
+
+.socials {
+  @apply flex gap-4 items-center;
+}
+
+.logo path,
+.socials path {
+  @apply fill-[#33323D];
+}
+
+.logo:hover,
+.socials:hover {
+  @apply cursor-pointer;
+}
+
+.socials svg:hover path {
+  @apply fill-green;
+}
+
+.socials-footer path,
+.logo-footer path {
+  @apply fill-white;
+}
+
+.button {
+  @apply text-xs uppercase py-[16px] px-[32px] w-fit font-medium tracking-widest cursor-pointer flex items-center;
+}
+
+.button-primary {
+  @apply bg-blue text-white;
+}
+
+.button-tertiary {
+  @apply border-2 border-indigo;
+}

@@ -1,0 +1,119 @@
+.thumbnail {
+  @apply mb-16;
+}
+
+.details {
+  @apply flex items-start gap-16 mb-24;
+}
+
+.summary {
+  @apply basis-[375px] py-8 pr-6 border-y border-[#ccc] text-[14px];
+}
+
+.summary h1 {
+  @apply text-xl mb-8;
+}
+
+.summary p {
+  @apply mb-4;
+}
+
+.summary span {
+  @apply block text-green font-semibold;
+}
+
+.content {
+  @apply flex-1;
+}
+
+.content h2 {
+  @apply text-lg mb-6;
+}
+
+.content p {
+  @apply mb-12;
+}
+
+.content img {
+  @apply mb-8;
+}
+
+.actions {
+  @apply flex items-stretch mt-8;
+}
+
+.navigate {
+  @apply flex items-center;
+}
+
+.navigate div {
+  @apply flex-1 py-6 border-y border-[#ccc] flex items-center gap-6;
+}
+
+.navigate div:first-child {
+  @apply border-r;
+}
+
+.navigate div:last-child {
+  @apply border-l text-right justify-end;
+}
+
+.navigate h3 {
+  @apply text-md mb-2;
+}
+
+@media screen and (max-width: 900px) {
+  .thumbnail {
+    @apply mb-12;
+  }
+
+  .details {
+    @apply flex-col gap-16 mb-24;
+  }
+
+  .summary {
+    @apply py-8 pr-8;
+  }
+
+  .summary h1 {
+    @apply text-xl mb-6;
+  }
+
+  .summary p {
+    @apply mb-8;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .thumbnail {
+    @apply mb-12;
+  }
+
+  .details {
+    @apply flex-col gap-16 mb-24;
+  }
+
+  .summary {
+    @apply pr-0;
+  }
+
+  .navigate {
+    @apply flex-col items-stretch;
+  }
+
+  .navigate div {
+    @apply flex-1 py-4 border-y-0 border-t;
+  }
+
+  .navigate div:first-child {
+    @apply border-r-0;
+  }
+
+  .navigate div:last-child {
+    @apply border-l-0 border-b;
+  }
+
+  .navigate h3 {
+    @apply text-base mb-1;
+  }
+}

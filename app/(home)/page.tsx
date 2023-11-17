@@ -1,22 +1,31 @@
 import Image from "next/image";
+import styles from "./Home.module.css";
+import Button from "@/components/Reusable/Button";
 
 export default function Home() {
   return (
     <>
-      <section>
-        <div>
-          <h1>Hey, I’m Alex Spencer and I love building beautiful websites</h1>
-          <button>About me</button>
+      <section className={styles.hero}>
+        <div className={styles["hero-image"]}>
+          <Image
+            priority
+            width="1110"
+            height="500"
+            sizes="(max-width: 425px) 50vw, 75w"
+            src="/homepage/desktop/image-homepage-hero@2x.jpg"
+            alt="manage landing page displayed on a monitor with a black frame"
+          />
         </div>
-        <div>
-          <Image width="1110" height="100" src="/homepage/desktop/image-homepage-hero@2x.jpg" alt="manage landing page displayed on a monitor with a black frame" />
+        <div className={styles["hero-text"]}>
+          <h1>Hey, I’m Alex Spencer and I love building beautiful websites</h1>
+          <Button type="primary">About me</Button>
         </div>
       </section>
-      <section>
-        <div>
-          <Image src={"/homepage/desktop/image-homepage-profile@2x.jpg"} width={500} height={600} alt="image of alex spencer" />
+      <section id="#about" className={styles.about}>
+        <div className={styles["about-image"]}>
+          <Image src={"/homepage/desktop/image-homepage-profile@2x.jpg"} sizes="(max-width: 425px) 50vw, 75w" width={540} height={600} alt="image of alex spencer" />
         </div>
-        <div>
+        <div className={styles["about-text"]}>
           <h2>About Me</h2>
           <p>
             I’m a junior front-end developer looking for a new role in an exciting company. I focus on writing accessible HTML, using modern CSS practices and writing clean
@@ -24,7 +33,7 @@ export default function Home() {
             and have experience in remote teams. When I’m not coding, you’ll find me outdoors. I love being out in nature whether that’s going for a walk, run or cycling. I’d love
             you to check out my work.
           </p>
-          <button>Go to portfolio</button>
+          <Button type="tertiary">Go to portfolio</Button>
         </div>
       </section>
     </>

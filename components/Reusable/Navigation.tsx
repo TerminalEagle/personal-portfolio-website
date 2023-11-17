@@ -1,12 +1,19 @@
 import Link from "next/link";
 import React from "react";
+import styles from "./Reusable.module.css";
+import clsx from "clsx";
 
-export const Navigation = () => {
+interface Props {
+  location?: "header" | "footer";
+}
+
+export const Navigation = ({ location }: Props) => {
+  const classes = clsx({ [styles.navigation]: true, [styles[`navigation-${location}`]]: true });
   return (
-    <nav>
+    <nav className={classes}>
       <ul>
         <li>
-          <Link href={"/home"}>Home</Link>
+          <Link href={"/"}>Home</Link>
         </li>
         <li>
           <Link href={"/portfolio"}>Portfolio</Link>
