@@ -30,7 +30,7 @@ export default function Home() {
           <h2>About Me</h2>
           <p>
             A passionate MERN stack developer on a journey to turn ideas into awesome digital experiences. With a love for clean code and creative problem-solving, I specialize in
-            crafting dynamic and user-friendly web applications. Whether it's bringing designs to life with React, optimizing databases with MongoDB, or ensuring seamless
+            crafting dynamic and user-friendly web applications. Whether it&apos;s bringing designs to life with React, optimizing databases with MongoDB, or ensuring seamless
             functionality with Node.js, I thrive on turning challenges into opportunities.
           </p>
           <Button type="tertiary">

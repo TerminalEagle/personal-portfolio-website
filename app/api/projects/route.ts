@@ -1,5 +1,4 @@
 import mongoose, { Model, Schema } from "mongoose";
-import { NextRequest } from "next/server";
 
 mongoose.connect("mongodb+srv://portfolio:3234n7hKctuGLx7p@datacluster.fptcmom.mongodb.net/portfolio?retryWrites=true&w=majority");
 const projectSchema = new Schema({
