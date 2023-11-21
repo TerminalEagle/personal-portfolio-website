@@ -25,7 +25,7 @@ interface IProject extends Document {
 }
 
 // Check if the model already exists before defining it
-export const Project: Model<IProject> = mongoose.models.Project || mongoose.model<IProject>("Project", projectSchema);
+const Project: Model<IProject> = mongoose.models.Project || mongoose.model<IProject>("Project", projectSchema);
 
 export async function GET() {
   const response = await Project.find({});
