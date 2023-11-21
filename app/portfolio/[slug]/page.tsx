@@ -1,21 +1,37 @@
-import projects from "@/app/data";
 import Image from "next/image";
 import Link from "next/link";
 import React from "react";
 import styles from "./Project.module.css";
 import Button from "@/components/Reusable/Button";
 
-const Project = ({ params }: { params: { slug: string } }) => {
-  const index = projects.findIndex((project) => project.slug === params.slug);
-  const previous = index === 0 ? projects[projects.length - 1] : projects[index - 1];
-  const next = projects[(index + 1) % projects.length];
+interface ProjectData {
+  slug: string;
+  title: string;
+  description: string;
+  skills: string[];
+  technologies: string[];
+  visitWebsiteLink: string;
+  solutionLink: string;
+  projectBackground: string;
+}
 
-  const { title, description, skills, technologies, visitWebsiteLink, projectBackground, staticPreview } = projects.find((project) => project.slug === params.slug)!;
+const Project = async ({ params }: { params: { slug: string } }) => {
+  const data = await fetch(`https://dev-forge.netlify.app/api/projects/${params.slug}`);
+  const project: ProjectData[] = await data.json();
+  if (!data) return;
+
+  const { title, description, skills, technologies, visitWebsiteLink, projectBackground, solutionLink } = project[0];
 
   return (
     <article className={styles.project}>
       <div className={styles.thumbnail}>
-        <Image sizes="(max-width: 425px) 50vw, 75w" width={1100} height={500} src={staticPreview.hero.desktop} alt={`image of the project ${title}`} />
+        <Image
+          sizes="(max-width: 425px) 50vw, 75w"
+          width={1100}
+          height={500}
+          src={`https://res.cloudinary.com/duxvbkmd4/image/upload/f_auto,q_auto/v1/portfolio/${params.slug}/hero`}
+          alt={`image of the project ${title}`}
+        />
       </div>
       <div className={styles.details}>
         <section className={styles.summary}>
@@ -28,7 +44,7 @@ const Project = ({ params }: { params: { slug: string } }) => {
               <Link href={visitWebsiteLink}>View demo</Link>
             </Button>
             <Button type="primary">
-              <Link href={"#"}>View code</Link>
+              <Link href={solutionLink}>View code</Link>
             </Button>
           </div>
         </section>
@@ -41,34 +57,18 @@ const Project = ({ params }: { params: { slug: string } }) => {
               sizes="(max-width: 425px) 50vw, 75w"
               width={1100}
               height={500}
-              src={staticPreview.previewOne.desktop}
-              alt={`preview-1 image of the project ${staticPreview.previewOne.desktop}`}
+              src={`https://res.cloudinary.com/duxvbkmd4/image/upload/f_auto,q_auto/v1/portfolio/${params.slug}/preview-1`}
+              alt={`preview-1 image of the project ${title}`}
             />
             <Image
               sizes="(max-width: 425px) 50vw, 75w"
               width={1100}
               height={500}
-              src={staticPreview.previewTwo.desktop}
-              alt={`preview-1 image of the project ${staticPreview.previewOne.desktop}`}
+              src={`https://res.cloudinary.com/duxvbkmd4/image/upload/f_auto,q_auto/v1/portfolio/${params.slug}/preview-2`}
+              alt={`preview-1 image of the project ${title}`}
             />
           </div>
         </section>
-      </div>
-      <div className={styles.navigate}>
-        <div>
-          <Image height={12} width={12} src={"/icons/arrow-left.svg"} alt="left arrow" />
-          <Link href={`/portfolio/${previous.slug}`}>
-            <h3>{previous.title}</h3>
-            <p>Previous project</p>
-          </Link>
-        </div>
-        <div>
-          <Link href={`/portfolio/${next.slug}`}>
-            <h3>{next.title}</h3>
-            <p>Next project</p>
-          </Link>
-          <Image height={12} width={12} src={"/icons/arrow-right.svg"} alt="left arrow" />
-        </div>
       </div>
     </article>
   );
